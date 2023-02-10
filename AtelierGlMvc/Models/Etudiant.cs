@@ -19,7 +19,8 @@ namespace AtelierGlMvc.Models
         [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "*"), Display(Name = "Email"), MaxLength(80, ErrorMessage = "Taille maximale 80")]
         public string Email { get; set;}
-        [Required(ErrorMessage = "*"), Display(Name = "Tel"), MaxLength(80, ErrorMessage = "Taille maximale 80")]
+        [DataType(DataType.PhoneNumber)]
+        [Required(ErrorMessage = "*"), Display(Name = "Tel"), MaxLength(20, ErrorMessage = "Taille maximale 20")]
         public string Tel { get; set;}
     }
 }

@@ -176,6 +176,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Classe.cs" />
     <Compile Include="Models\Etudiant.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ISIEXAMContext.cs" />

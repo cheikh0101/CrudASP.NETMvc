@@ -13,5 +13,6 @@ namespace AtelierGlMvc.Models
         }
 
         public DbSet<Etudiant> Etudiant { get; set;}
+        public DbSet<Classe> Classe { get; set; }
     }
 }
