@@ -15,8 +15,20 @@ namespace AtelierGlMvc.Controllers
         private ISIEXAMContext db = new ISIEXAMContext();
 
         // GET: Etudiants
-        public ActionResult Index()
+        public ActionResult Index(string Nom, string Prenom, string Tel)
         {
+            if (!string.IsNullOrEmpty(Nom))
+            {
+
+            }
+            if (!string.IsNullOrEmpty(Prenom))
+            {
+
+            }
+            if (!string.IsNullOrEmpty(Tel))
+            {
+
+            }
             return View(db.Etudiant.ToList());
         }
 
