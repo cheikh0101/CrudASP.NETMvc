@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AtelierGlMvc.Models.Classe>
+
+@{
+    ViewBag.Title = "Classes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center mt-5">Liste des classes</h2>
+
+<p>
+    @Html.ActionLink("Nouvelle classe", "Create")
+</p>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Libelle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Libelle)
+        </td>
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Plus", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

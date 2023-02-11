@@ -1,45 +1,52 @@
 ﻿@model IEnumerable<AtelierGlMvc.Models.Etudiant>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Etudiants";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="form-horizontal">
-    <div class="form-group">
-        @Html.Label("Nom", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.Editor("Nom", new { htmlAttributes = new { @class = "form-control" } })
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                @Html.Label("Nom", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.Editor("Nom", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="form-group">
-        @Html.Label("Prenom", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.Editor("Prenom", new { htmlAttributes = new { @class = "form-control" } })
+        <div class="col">
+            <div class="form-group">
+                @Html.Label("Prenom", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.Editor("Prenom", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="form-group">
-        @Html.Label("Tel", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.Editor("Tel", new { htmlAttributes = new { @class = "form-control" } })
+        <div class="col">
+            <div class="form-group">
+                @Html.Label("Telephone", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.Editor("Tel", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Rechercher" class="btn btn-default" />
+        <div class="col">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Rechercher" class="btn btn-primary mt-3" />
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-    <h2>Index</h2>
+    <h2 class="text-center mt-5">Liste des etudiants</h2>
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Nouveau Etudiant", "Create")
     </p>
-    <table class="table">
+    <table class="table table-striped">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nom)
@@ -78,9 +85,9 @@
                     @Html.DisplayFor(modelItem => item.Tel)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Plus", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }

@@ -13,5 +13,6 @@ namespace AtelierGlMvc.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "*"), Display(Name ="Libelle"), MaxLength(25, ErrorMessage ="Taille maximale 25")]
         public string Libelle { get; set; }
+        public ICollection<Etudiant> Etudiant { get; set;}
     }
 }

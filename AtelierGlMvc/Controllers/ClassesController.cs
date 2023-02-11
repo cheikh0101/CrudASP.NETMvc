@@ -10,107 +10,107 @@ using AtelierGlMvc.Models;
 
 namespace AtelierGlMvc.Controllers
 {
-    public class EtudiantsController : Controller
+    public class ClassesController : Controller
     {
         private ISIEXAMContext db = new ISIEXAMContext();
 
-        // GET: Etudiants
+        // GET: Classes
         public ActionResult Index()
         {
-            return View(db.Etudiant.ToList());
+            return View(db.Classe.ToList());
         }
 
-        // GET: Etudiants/Details/5
+        // GET: Classes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Etudiant etudiant = db.Etudiant.Find(id);
-            if (etudiant == null)
+            Classe classe = db.Classe.Find(id);
+            if (classe == null)
             {
                 return HttpNotFound();
             }
-            return View(etudiant);
+            return View(classe);
         }
 
-        // GET: Etudiants/Create
+        // GET: Classes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Etudiants/Create
+        // POST: Classes/Create
         // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nom,Prenom,Adresse,Email,Tel")] Etudiant etudiant)
+        public ActionResult Create([Bind(Include = "Id,Libelle")] Classe classe)
         {
             if (ModelState.IsValid)
             {
-                db.Etudiant.Add(etudiant);
+                db.Classe.Add(classe);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(etudiant);
+            return View(classe);
         }
 
-        // GET: Etudiants/Edit/5
+        // GET: Classes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Etudiant etudiant = db.Etudiant.Find(id);
-            if (etudiant == null)
+            Classe classe = db.Classe.Find(id);
+            if (classe == null)
             {
                 return HttpNotFound();
             }
-            return View(etudiant);
+            return View(classe);
         }
 
-        // POST: Etudiants/Edit/5
+        // POST: Classes/Edit/5
         // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nom,Prenom,Adresse,Email,Tel")] Etudiant etudiant)
+        public ActionResult Edit([Bind(Include = "Id,Libelle")] Classe classe)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(etudiant).State = EntityState.Modified;
+                db.Entry(classe).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(etudiant);
+            return View(classe);
         }
 
-        // GET: Etudiants/Delete/5
+        // GET: Classes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Etudiant etudiant = db.Etudiant.Find(id);
-            if (etudiant == null)
+            Classe classe = db.Classe.Find(id);
+            if (classe == null)
             {
                 return HttpNotFound();
             }
-            return View(etudiant);
+            return View(classe);
         }
 
-        // POST: Etudiants/Delete/5
+        // POST: Classes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Etudiant etudiant = db.Etudiant.Find(id);
-            db.Etudiant.Remove(etudiant);
+            Classe classe = db.Classe.Find(id);
+            db.Classe.Remove(classe);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
